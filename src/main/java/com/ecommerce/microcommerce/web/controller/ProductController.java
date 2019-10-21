@@ -78,6 +78,11 @@ public class ProductController {
 		return productDao.findAll().stream().collect(Collectors.toMap(Product::getShortDisplay, Product::getMarge));
 	}
 
+	@GetMapping(value = "/ProduitsOrdonnes")
+	public List<Product> trierProduitsParOrdreAlphabetique() {
+		return productDao.findAllByOrderByNom();
+	}
+
 	// ajouter un produit
 	@PostMapping(value = "/Produits")
 
